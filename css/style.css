@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    --primary-color: #008080;
+    --secondary-color: #f0f8ff;
+    --background-color: #e6f2f2;
+    --text-color: #333;
+    --white: #fff;
+    --gray: #ccc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.mobile-container {
+    width: 375px;
+    height: 812px;
+    background-color: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Login Page */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    height: 100%;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.logo img {
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+.logo h1 {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.logo p {
+    font-size: 1em;
+    color: #777;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1em;
+    margin: 10px 0;
+    border: 1px solid var(--gray);
+    transition: background-color 0.3s;
+}
+
+.google-btn {
+    background-color: var(--white);
+    color: var(--text-color);
+}
+
+.google-btn img {
+    margin-right: 10px;
+}
+
+.email-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border: 2px dashed var(--white);
+}
+
+.email-btn svg {
+    margin-right: 10px;
+}
+
+.or-separator {
+    margin: 20px 0;
+    color: var(--gray);
+    text-align: center;
+}
+
+/* Home Page */
+header {
+    padding: 40px 20px 20px;
+    background-color: var(--secondary-color);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+header h1 {
+    font-size: 2em;
+    font-weight: 700;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.feature-card {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card h2 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0;
+    border-top: 1px solid #eee;
+}
+
+.footer-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--gray);
+}
+
+.footer-icon svg {
+    stroke: var(--gray);
+    transition: stroke 0.3s;
+}
+
+.footer-icon.active span,
+.footer-icon:hover span {
+    color: var(--primary-color);
+}
+
+.footer-icon.active svg,
+.footer-icon:hover svg {
+    stroke: var(--primary-color);
+}
+
+.footer-icon span {
+    font-size: 0.8em;
+    margin-top: 5px;
+    color: var(--gray); /* Explicitly set initial color */
+    transition: color 0.3s;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 15px;
+    width: 90%;
+    max-height: 80%;
+    overflow-y: auto;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#modal-body h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* Learning Pal Modal */
+#chat-container {
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid #eee;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+#chat-container .user-msg {
+    text-align: right;
+    color: blue;
+}
+
+#chat-container .bot-msg {
+    text-align: left;
+    color: green;
+}
+
+#chat-input {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--gray);
+}
+
+/* Task Track Modal */
+#task-list {
+    list-style: none;
+}
+
+#task-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#task-list input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+#new-task-input {
+    width: calc(100% - 80px);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--gray);
+}
+
+#add-task-btn {
+    padding: 10px;
+    border: none;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Learn Box Modal */
+#flashcard-container {
+    perspective: 1000px;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 10px;
+}
+
+.flashcard {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    cursor: pointer;
+}
+
+.flashcard.is-flipped {
+    transform: rotateY(180deg);
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--primary-color);
+}
+
+.card-front {
+    background-color: var(--secondary-color);
+}
+
+.card-back {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: rotateY(180deg);
+}
+
+#flashcard-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Quick Scribble Modal */
+#notes-area {
+    width: 100%;
+    height: 300px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--gray);
+}
