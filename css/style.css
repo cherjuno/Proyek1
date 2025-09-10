@@ -125,19 +125,32 @@ main {
     flex: 1;
     padding: 20px;
     overflow-y: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
 }
 
 .feature-card {
     background-color: var(--secondary-color);
     padding: 20px;
     border-radius: 15px;
-    margin-bottom: 15px;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .feature-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 128, 128, 0.15);
+}
+
+.feature-card .icon {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: var(--primary-color);
 }
 
 .feature-card h2 {
@@ -157,29 +170,28 @@ footer {
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    color: var(--gray);
-}
-
-.footer-icon svg {
-    stroke: var(--gray);
-    transition: stroke 0.3s;
-}
-
-.footer-icon.active span,
-.footer-icon:hover span {
-    color: var(--primary-color);
-}
-
-.footer-icon.active svg,
-.footer-icon:hover svg {
-    stroke: var(--primary-color);
 }
 
 .footer-icon span {
     font-size: 0.8em;
     margin-top: 5px;
-    color: var(--gray); /* Explicitly set initial color */
-    transition: color 0.3s;
+    color: var(--gray);
+    transition: color 0.2s;
+}
+
+.footer-icon svg {
+    stroke: var(--gray);
+    transition: stroke 0.2s;
+}
+
+.footer-icon:hover span,
+.footer-icon.active span {
+    color: var(--primary-color);
+}
+
+.footer-icon:hover svg,
+.footer-icon.active svg {
+    stroke: var(--primary-color);
 }
 
 /* Modal */

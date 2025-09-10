@@ -146,4 +146,50 @@ document.addEventListener('DOMContentLoaded', () => {
             notes = e.target.value;
         });
     });
+
+    // Footer Navigation
+    const footerIcons = document.querySelectorAll('.footer-icon');
+    const featureCards = {
+        'footer-home': null,
+        'footer-tasks': document.getElementById('task-track'),
+        'footer-ai-pal': document.getElementById('learning-pal'),
+        'footer-learn-box': document.getElementById('learn-box')
+    };
+
+    function setActiveIcon(iconId) {
+        footerIcons.forEach(icon => {
+            icon.classList.remove('active');
+        });
+        document.getElementById(iconId).classList.add('active');
+    }
+
+    footerIcons.forEach(icon => {
+        icon.addEventListener('click', (e) => {
+            e.preventDefault();
+            const iconId = icon.id;
+            const targetCard = featureCards[iconId];
+
+            setActiveIcon(iconId);
+
+            if (targetCard) {
+                targetCard.click();
+            } else {
+                // This is the Home button
+                closeModal();
+            }
+        });
+    });
+
+    // Also set active icon when closing modal with X or by clicking outside
+    const originalCloseModal = closeModal;
+    closeModal = function() {
+        originalCloseModal();
+        setActiveIcon('footer-home');
+    }
+    closeBtn.addEventListener('click', closeModal);
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
 });
